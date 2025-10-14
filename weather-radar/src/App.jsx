@@ -10,6 +10,8 @@ import MainMenuHeader from './components/MainMenuHeader';
 import MapControlsPanel from './components/MapControlsPanel';
 import Legend from './components/Legend';
 
+ const mapboxToken = import.meta.env.VITE_MAPBOX_TOKEN;
+
 function App() {
   const mapRef = useRef(null);
   const mapContainerRef = useRef(null);
@@ -101,7 +103,7 @@ function App() {
   
   useEffect(() => {
     if (mapContainerRef.current && !mapRef.current) {
-      mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhcnZhcmlnYWRpd2FuIiwiYSI6ImNtY3F4Y3ZnMzBvZmoybW9ybm5jeTNrbzkifQ.DJ2jQGlbRWRdUtYbTI8jFw';
+      mapboxgl.accessToken = mapboxToken;
       mapRef.current = new mapboxgl.Map({
         container: mapContainerRef.current,
         style: 'mapbox://styles/mapbox/streets-v12',
@@ -145,7 +147,7 @@ function App() {
           map.addSource('radar', {
             type: 'raster',
             // url : "mapbox://styles/mapbox/streets-v12",
-            //tiles: ['https://tile.openweathermap.org/map/radar/{z}/{x}/{y}.png?appid=YOUR_API_KEY'],
+            tiles: [`https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`],
             tileSize: 256,
           });
           map.addLayer({ id: 'radar', type: 'raster', source: 'radar', paint: { 'raster-opacity': 0.3 } });

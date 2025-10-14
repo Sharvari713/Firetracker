@@ -12,10 +12,8 @@ export default function MapControlsPanel({ selectedMainLayer, setSelectedMainLay
 
   return (
     <div className="bg-white bg-opacity-95 rounded-xl shadow-lg p-4 w-[360px] text-sm text-gray-800">
-      {/* Header */}
       <div className="text-center font-semibold text-lg mb-2">{`${dayString} ${timeString}`}</div>
 
-      {/* Timeline */}
       <div className="flex flex-col items-center mb-4">
         <div className="flex items-center gap-2 w-full">
           <button className="bg-gray-200 hover:bg-gray-300 rounded-full p-2">
@@ -63,8 +61,8 @@ export default function MapControlsPanel({ selectedMainLayer, setSelectedMainLay
           onClick={() => setShowLayersModal(!showLayersModal)}
           className="flex flex-col items-center bg-black text-white rounded-full w-12 h-12 justify-center"
         >
-          <FaLayerGroup size={50} />
-          <span className="text-xs mt-1 text-black font-semibold">All Layers</span>
+          <FaLayerGroup size={100} />
+          <span className="text-xs mt-1 text-gray-500 font-semibold">All Layers</span>
         </button>
       </div>
 
