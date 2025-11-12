@@ -4,6 +4,12 @@
 // timeline AUG t at 6:00am, i dont want keyword at
 // data - fireperimter is the latest used 
 // current is - dixie_predicted
+
+// SOlid four colours, brown - burnt, red highly likely orange likely and yellow low likely 
+// under timeline only have three Circles, forecast, interventions wiht lock sign ( display only ), all layers
+
+
+
 import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import MainMenuHeader from './components/MainMenuHeader';
@@ -126,7 +132,7 @@ function App() {
     if (!map) return;
 
     const removePreviousLayer = () => {
-      const layers = ['radar', 'forecast24', 'forecast72', 'topography', 'temperature'];
+      const layers = ['Forecast', 'forecast72', 'topography', 'temperature'];
       layers.forEach((id) => {
         if (map.getLayer(id)) map.removeLayer(id);
         if (map.getSource(id)) map.removeSource(id);
@@ -271,7 +277,7 @@ function App() {
     //     .catch(err => console.error('Failed to load wildfire polygons:', err));
     //   break;
 
-    case 'Wildfire':
+    case 'Forecast':
       const observedDataPromise = fetch('/data/dixie_20250819_observed.geojson').then(res => res.json());
       const predictedDataPromise = fetch('/data/dixie_20250819_predict.geojson').then(res => res.json());
       

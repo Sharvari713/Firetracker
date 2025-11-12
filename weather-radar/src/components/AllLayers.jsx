@@ -85,7 +85,7 @@ const AllLayers = ({
     //     <div className="h-[1px] bg-gray-200"></div>
     //   </div>
     <div className="absolute bottom-4 right-4 bg-white rounded-lg shadow-2xl p-4 w-[360px] max-w-md">
-      <button
+      <button id = "close button"
         onClick={onClose}
         className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 z-50"
       >
@@ -104,7 +104,8 @@ const AllLayers = ({
       </button>
 
       <div className="sticky top-0 bg-white z-10">
-        <div className="text-center font-semibold text-lg mb-2">
+        <div id = "datetime"
+          className="text-center font-semibold text-lg mt-1">
           {timestamps.length > 0
           ? new Date(timestamps[currentTimestampIndex]).toLocaleString(undefined, {
               month: 'short',
@@ -115,7 +116,8 @@ const AllLayers = ({
             })
             : "Loading..."}
         </div>
-        <div className="flex flex-col items-center mb-4">
+        <div id = "playtime"
+          className="flex flex-col items-center mb-5">
           <div className="flex items-center gap-2 w-full">
 
           <button
@@ -135,23 +137,6 @@ const AllLayers = ({
                 onChange={(e) => setCurrentTimestampIndex(parseInt(e.target.value))}
                 className="w-full absolute top-1/2 -translate-y-1/2 "
               />
-              {/* <div className="flex justify-between text-xs text-gray-500 px-1">
-                  {timestamps.map((t, i) => {
-                    const date = new Date(t);
-                    const isStartOfDay = date.getHours() === 0 && date.getMinutes() === 0;
-                    return isStartOfDay ? (
-                      <span key={t}>
-                        {date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
-                      </span>
-                    ) : (
-                      <span
-                        key={t}
-                        className="w-[1px] h-3 bg-gray-400 inline-block"
-                        aria-hidden="true"
-                      />
-                    );
-                  })}
-              </div> */}
               <div className="flex justify-between w-full absolute bottom-0 left-0 right-0">
                   {timestamps.map((t, i) => {
                     const date = new Date(t);
@@ -169,10 +154,10 @@ const AllLayers = ({
                       tickClass = "h-5 w-0.5 bg-blue-600";
                     }if (isStartOfDay) {
                       label = date.toLocaleString('en-US', { day: 'numeric' });
-                      tickClass = "h-5 w-0.5 bg-gray-700"; 
+                      tickClass = "h-3 w-0.5 bg-gray-700"; 
                     } else if (is6AM || isNoon || is6PM) {
                       // label = date.toLocaleString('en-US', { hour: 'numeric', hour12: true }).toLowerCase();
-                      tickClass = "h-3 w-px bg-gray-500"; // Medium tick for 6-hour marks
+                      tickClass = "h-1 w-px bg-gray-500"; // Medium tick for 6-hour marks
                     } else {
                         
                         tickClass = "h-2 w-px bg-gray-400";
@@ -201,7 +186,7 @@ const AllLayers = ({
             </div>
           </div>
         </div>
-        <div className="h-[1px] bg-gray-200"></div>
+        <div className="h-[2px] bg-gray-300 mb-2"></div>
       </div>
 
       <div className="overflow-y-auto max-h-[calc(100vh-200px)] pr-1">

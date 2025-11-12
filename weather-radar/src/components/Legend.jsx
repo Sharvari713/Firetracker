@@ -1,25 +1,27 @@
 import React from 'react';
+import { FaFire } from "react-icons/fa";
 
 const Legend = () => {
   return (
-    <div className="bg-slate-900 text-white px-6 py-4 shadow flex justify-between items-center">
-      {/* <h3 className="text-white text-lg font-semibold mb-2">Wildfire Probability</h3>
-       */}
-      <div className="flex flex-col items-center w-full">
-        {/* The Gradient Bar */}
-        <div 
-          className="h-4 w-full rounded-full"
-          style={{
-            background: 'linear-gradient(to right, #ffff00, #ff7f00, #ff0000, #5a2d0c)'
-          }}
-        ></div>
-        
-        {/* The Labels */}
-        <div className="flex justify-between w-full mt-2 text-white text-xs">
-          <span>Low</span>
-          <span>Moderate</span>
-          <span>High</span>
-          <span>Extreme</span>
+    <div className="bg-white/90 backdrop-blur-md text-gray-800 px-6 py-3 rounded-xl shadow-md border border-gray-200 flex flex-col items-center select-none transition-all duration-200 hover:shadow-lg">
+
+      {/* Inline Legend */}
+      <div className="flex justify-center items-center space-x-6 text-sm font-medium text-gray-700">
+        <div className="flex items-center space-x-2">
+          <span>Burning</span>
+          <div className="h-2.5 w-14 rounded-full bg-red-600 shadow-sm"></div>
+        </div>
+        <div className="flex items-center space-x-2">
+          <span>More Likely</span>
+          <div className="h-2.5 w-14 rounded-full bg-orange-500 shadow-sm"></div>
+        </div>
+        <div className="flex items-center space-x-2">
+          <span>Less Likely</span>
+          <div className="h-2.5 w-14 rounded-full bg-yellow-400 shadow-sm"></div>
+        </div>
+        <div className="flex items-center space-x-2">
+          <span>Burnt</span>
+          <div className="h-2.5 w-14 rounded-full bg-[#8B4513] shadow-sm"></div>
         </div>
       </div>
     </div>
